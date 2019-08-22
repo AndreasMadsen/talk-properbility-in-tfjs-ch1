@@ -1,0 +1,14 @@
+<pre><code class="javascript">const digamma = require('math-digamma');
+
+async function tfDigamma(tensor) {
+    const tensorData = await tensor.data();
+    const digammaData = [];
+    for (const scalarData of tensorData) {
+        digammaData.push(digamma(scalarData));
+    }
+    return tf.tensor(digammaData, tensor.shape, tensor.dtype);
+}
+
+const digamma = await tfDigamma(gamma);
+const theta = beta.mul(digamma.exp());
+</code></pre>

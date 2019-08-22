@@ -1,0 +1,33 @@
+<style scoped>
+    :scope .content {
+        height: 400px;
+        overflow: hidden;
+        border-top: 1px solid #839496;
+        border-bottom: 1px solid #839496;
+    }
+
+    :scope .img {
+        width: 630px;
+        height: 900px;
+        background-image: url(slides/digamma/page-2.png);
+        margin: 0 auto;
+        position: relative;
+        transition: top 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    :scope .img[data-position="0"] {
+        top: 0px;
+    }
+
+    :scope .img[data-position="1"] {
+        top: -320px;
+    }
+</style>
+
+<article id="digamma-page-2-logic">
+    <div hidden class="fragment current-visible" data-fragment-index="0"></div>
+</article>
+
+<article class="content">
+    <div id="digamma-page-img" class="img" data-position="0">
+</article>

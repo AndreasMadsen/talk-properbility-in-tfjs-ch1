@@ -1,0 +1,134 @@
+<style scoped>
+:scope #tf-intro {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "code plot"
+        "output plot";
+}
+
+:scope #tf-intro-code {
+    grid-area: code;
+}
+
+:scope #tf-intro-output {
+    grid-area: output;
+}
+
+:scope #tf-intro-plot {
+    grid-area: plot;
+
+    position: relative;
+    height: 360px;
+    width: 350px;
+    overflow: hidden;
+}
+
+:scope #tf-intro-plot canvas {
+    position: absolute;
+    opacity: 0.4;
+}
+
+:scope #tf-intro-plot svg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+:scope #tf-intro-plot div {
+    position: absolute;
+    top: 330px;
+    font-size: 50%;
+    width: 350px;
+    text-align: center
+}
+</style>
+
+<div id="tf-intro-logic">
+    <div hidden class="fragment" data-fragment-index="0"></div>
+    <div hidden class="fragment" data-fragment-index="1"></div>
+    <div hidden class="fragment" data-fragment-index="2"></div>
+    <div hidden class="fragment" data-fragment-index="3"></div>
+</div>
+
+<div id="tf-intro">
+    <div id="tf-intro-code" style="font-size: 80%;">
+        <pre class="extra-fragment" data-fragment-index="0"><code class="javascript">input.print();</code></pre>
+        <pre class="extra-fragment" data-fragment-index="1"><code class="javascript">const w1 = tf.variable(
+ tf.randomUniform([2, 5], -0.93, 0.93));
+const w2 = tf.variable(
+ tf.randomUniform([5, 3], -0.83, 0.83));
+
+const output = input.matMul(w1).tanh().matMul(w2);
+
+output.print();
+</code></pre>
+<pre class="extra-fragment" data-fragment-index="2"><code class="javascript">const w1 = tf.variable(
+ tf.randomUniform([2, 5], -0.93, 0.93));
+const w2 = tf.variable(
+ tf.randomUniform([5, 3], -0.83, 0.83));
+
+const output = input.matMul(w1).tanh().matMul(w2);
+const loss = tf.losses.softmaxCrossEntropy(
+ target, output).mean();
+
+loss.print();
+</code></pre>
+        <pre class="extra-fragment" data-fragment-index="3"><code class="javascript">const w1 = tf.variable(
+ tf.randomUniform([2, 5], -0.93, 0.93));
+const w2 = tf.variable(
+ tf.randomUniform([5, 3], -0.83, 0.83));
+
+const gradient = tf.grads(function (w1, w2) {
+ const output = input.matMul(w1).tanh().matMul(w2);
+ return tf.losses.softmaxCrossEntropy(
+  target, output).mean();
+});
+
+for (let i = 0; i <= 100) {
+ tf.tidy(function () {
+  const [dLdW1, dLdW2] = gradient(w1, w2);
+  w1.assign(w1.sub(dLdw1.mul(0.2)));
+  w2.assign(w2.sub(dLdw2.mul(0.2)));
+ });
+}
+</code></pre>
+<pre class="extra-fragment" data-fragment-index="4"><code class="javascript">const w1 = tf.variable(
+ tf.randomUniform([2, 5], -0.93, 0.93));
+const w2 = tf.variable(
+ tf.randomUniform([5, 3], -0.83, 0.83));
+
+const gradient = tf.grads(function (w1, w2) {
+ const output = input.matMul(w1).tanh().matMul(w2);
+ return tf.losses.softmaxCrossEntropy(
+  target, output).mean();
+});
+
+for (let i = 0; i <= 100) {
+ tf.tidy(function () {
+  const [dLdW1, dLdW2] = gradient(w1, w2);
+  w1.assign(w1.sub(dLdw1.mul(0.2)));
+  w2.assign(w2.sub(dLdw2.mul(0.2)));
+ });
+}
+</code></pre>
+    </div>
+    <div id="tf-intro-output">
+        <pre class="extra-fragment" data-fragment-index="0"><code class="javascript">Tensor
+ [[-2.2647028, 0.4800266 ],
+  [-2.0809612, -0.6741335],
+   ...,
+  [1.3727878 , 1.0112544 ],
+  [0.960656  , -0.0243317]]</code></pre>
+    <pre class="extra-fragment" data-fragment-index="1"><code class="javascript">Tensor
+ [[0.1919913, 0.5396661, 0.2683425],
+  [0.16812  , 0.4105343, 0.4213457],
+   ...,
+  [0.551569 , 0.2706301, 0.1778009],
+  [0.4489535, 0.245383 , 0.3056634]]</code></pre>
+  <pre class="extra-fragment" data-fragment-index="2"><code class="javascript">Tensor
+  1.4665552377700806</code></pre>
+    </div>
+    <div id="tf-intro-plot"></div>
+</div>

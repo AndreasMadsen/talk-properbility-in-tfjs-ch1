@@ -1,0 +1,43 @@
+@import url(../../lib/font/font-awesome/font-awesome.css);
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  text-transform: none;
+}
+
+.reveal small {
+  vertical-align: baseline;
+}
+
+.reveal pre {
+  box-sizing: border-box;
+  box-shadow: none;
+  border: 1px solid #073642;
+  border-left: 5px solid #073642;
+}
+
+.reveal svg.d3 .axis .domain, :scope svg .axis .tick line {
+  stroke: #839496;
+}
+
+.reveal svg.d3 .axis .tick text {
+  fill: #839496;
+}
+
+.reveal svg.d3 text.label {
+  font-size: 10pt;
+  font-family: sans-serif;
+  fill: #839496;
+}
+
+.reveal .extra-fragment {
+  display: none;
+}
+
+.reveal .extra-fragment-visible {
+  display: block;
+}
+
+.reveal.overview .slides section {
+  height: unset;
+  top: unset !important;
+}

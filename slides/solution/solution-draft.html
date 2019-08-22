@@ -1,0 +1,18 @@
+
+<pre style="margin-top: -30px;"><code class="typescript" style="max-height: 420px;">export function digamma&lt;T extends tfc.Tensor&gt;(
+    x: T | tfc.TensorLike
+): T {
+    const digammaKernel = compile('digamma');
+    const polygammaKernel = compile('polygamma');
+    return runKernel(
+        function forwardFunc([x], save) {
+            save([x]);
+            return digammaKernel.runUnary(x);
+        },
+        function backwardPass(dy, [x]: T[]): T[] {
+            return [dy.mul(polygamma.run(1, x))];
+        },
+        [x]
+    ) as T;
+}
+</code></pre>

@@ -1,0 +1,127 @@
+<style scoped>
+:scope .container {
+    display: grid;
+    grid-template-columns: 350px 700px;
+    grid-template-rows: 1;
+    grid-template-areas: "list code";
+    grid-gap: 10px;
+}
+
+:scope .container ul {
+    font-size: 80%;
+    display: block;
+    margin: 0;
+    grid-area: list;
+}
+
+:scope .container article.code {
+    grid-area: code;
+}
+
+:scope article.code pre.fragment {
+    display: none;
+    margin: 0;
+}
+:scope article.code pre.fragment.current-fragment {
+    display: block;
+}
+</style>
+
+<div class="container">
+<ul>
+    <li class="fragment" data-fragment-index="1">Only fixed length arrays</li>
+    <li class="fragment" data-fragment-index="2">Only fixed length loops</li>
+    <li class="fragment" data-fragment-index="3">No recursive functions</li>
+    <li class="fragment" data-fragment-index="4">No gotos</li>
+    <li class="fragment" data-fragment-index="5">No implicit conversion</li>
+    <li class="fragment" data-fragment-index="6">No pointers, meaning no multiple return values</li>
+    <li class="fragment" data-fragment-index="7">... many more limitations</li>
+</ul>
+<article class="code">
+<pre class="fragment" data-fragment-index="1"><code class="c">float polevlf( float xx, float *coef, int N ) {
+  float ans = *p++;
+  float x = xx;
+  float *p = coef;
+  int i = N;
+  do
+    ans = ans * x + *p++;
+  while(--i);
+
+  return(ans);
+}
+</code></pre>
+
+<pre class="fragment" data-fragment-index="2"><code class="c">...
+while( tx < 1.5 )
+{
+  if( tx == 0.0 )
+    goto loverf;
+  z *=tx;
+  nx += 1.0;
+  tx = x + nx;
+}
+...
+</code></pre>
+
+<pre class="fragment" data-fragment-index="3"><code class="c">float lgamf( float xx ) {
+float p, q, w, z, x;
+float nx, tx;
+int i, direction;
+
+x = xx;
+if( x < 0.0 ) {
+  q = -x;
+  w = lgamf(q);
+  p = floorf(q);
+  ...
+}
+
+...
+return(q);
+}
+</code></pre>
+
+<pre class="fragment" data-fragment-index="4"><code class="c">...
+if( x < 6.5 ) {
+  p = x * polevlf( x, B, 7 );
+  goto cont;
+}
+if( x >= 0.75 ) {
+  p = x * polevlf( x, C, 7 );
+  goto contz;
+}
+...
+cont:
+  if( z < 0.0 ) {
+    z = -z;
+  }
+  q = logf(z);
+contz:
+  return( p + q );
+</code></pre>
+
+<pre class="fragment" data-fragment-index="5"><code class="c">...
+if( negative ) {
+  p = sgngamf * PIF/(nz * p );
+}
+return(p);
+</code></pre>
+
+<pre class="fragment" data-fragment-index="6"><code class="c">void fresnlf(float xxa,
+             float *ssa, float *cca ) {
+  ...
+  if( x2 < 2.5625 ) {
+    t = x2 * x2;
+    ss = x * x2 * polevlf( t, sn, 6);
+    cc = x * polevlf( t, cn, 6);
+  }
+  if( xxa < 0.0 ) {
+    cc = -cc;
+    ss = -ss;
+  }
+  ...
+  *cca = cc;
+  *ssa = ss;
+}
+</code></pre>
+</article>

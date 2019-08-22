@@ -1,0 +1,6 @@
+
+<math-latex display-mode latex="\phi_{n,k}^{t+1} = \beta_{k, w_n} \exp(\psi(\gamma_k^t))"></math-latex>
+
+<pre><code class="javascript">const digamma = tf.special.digamma(gamma);
+const theta = beta.mul(digamma.exp());
+</code></pre>

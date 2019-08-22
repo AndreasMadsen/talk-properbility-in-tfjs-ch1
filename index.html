@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Properbility in TensorFlow.js - Chapter 1: A programmer's nightmare</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/solarized-dark.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Properbility in TensorFlow.js</h1>
+					<section id="font-page">
+					<h2>Chapter 1: A programmer's nightmare</h2>
+					</section>
+				</section>
+				<section>
+					<h1>Intro: TensorFlow</h1>
+					<section data-import-from="slides/tf-intro/tf-intro.html" data-script="slides/tf-intro/tf-intro.js"></section>
+					<section data-import-from="slides/tf-intro/summary.html"></section>
+				</section>
+				<section>
+					<h1>Me</h1>
+					<section data-import-from="slides/me/me.html"></section>
+					<section data-import-from="slides/me/lda-task.html"></section>
+				</section>
+				<section>
+					<h1>Chapter 1</h1>
+					<section id="story-begins">
+						<h2>A programmer's nightmare</h2>
+					</section>
+				</section>
+				<section>
+					<h1 style="font-size: 300%;">Latent Dirichlet Allocation</h1>
+					<section data-import-from="slides/lda/algorithm.html"></section>
+					<section data-import-from="slides/lda/psi.html"></section>
+					<section data-import-from="slides/lda/ideal.html"></section>
+				</section>
+				<section>
+					<h1>"Just hack it"</h1>
+					<section data-import-from="slides/hack/advice-hack.html"></section>
+					<section data-import-from="slides/hack/hack-example.html"></section>
+					<section data-import-from="slides/hack/hack-issues.html"></section>
+				</section>
+				<section>
+					<h1>Solution draft</h1>
+					<section data-import-from="slides/solution/solution-draft.html"></section>
+				</section>
+				<section>
+					<h1>digamma - <math-latex latex="\Psi"></math-latex></h1>
+					<section data-import-from="slides/digamma/defintion.html"></section>
+					<section data-import-from="slides/digamma/advice-fundamentals.html"></section>
+					<section data-import-from="slides/digamma/page-1.html" data-script="slides/digamma/page-1.js"></section>
+					<section data-import-from="slides/digamma/page-2.html" data-script="slides/digamma/page-2.js"></section>
+					<!--<section data-import-from="slides/digamma/page-3.html" data-script="slides/digamma/page-3.js"></section>-->
+				</section>
+				<section>
+					<h1>Special functions</h1>
+					<section data-import-from="slides/special/special.html"></section>
+				</section>
+				<section>
+					<h1>Cephes</h1>
+					<section data-import-from="slides/cephes/advice-other-languages.html"></section>
+					<section data-import-from="slides/cephes/cephes-main.html"></section>
+					<section data-import-from="slides/cephes/cephes-psi.html"></section>
+					<section data-import-from="slides/cephes/advice-old-wisdom.html"></section>
+					<section data-import-from="slides/cephes/cephes-source.html" data-script="slides/cephes/cephes-source.js"></section>
+				</section>
+				<section>
+					<h1>Transpile C to WebGL</h1>
+					<section data-import-from="slides/transpile/no-tools.html"></section>
+					<section data-import-from="slides/transpile/advice-list-and-focus.html"></section>
+					<section data-import-from="slides/transpile/webgl-limitations.html"></section>
+				</section>
+				<section>
+					<h1><code style="font-size: 50%;">tfjs-special</code></h1>
+					<section data-import-from="slides/final/tfjs-special-api.html"></section>
+				</section>
+				<section>
+					<h1>Final thoughts</h1>
+					<section data-import-from="slides/conclusion/conclusion.html"></section>
+				</section>
+				<section>
+					<h1>Links</h1>
+					<section data-import-from="slides/links/links.html"></section>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				center: false,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/bundle.js' },
+					{ src: 'plugin/import/import.js' },
+					{ src: 'plugin/control-hide/control-hide.js', async: true },
+					{ src: 'plugin/math-katex/math.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

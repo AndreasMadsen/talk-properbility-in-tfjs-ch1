@@ -1,0 +1,26 @@
+<style scoped>
+:scope .fragment.opacity {
+  color: rgb(147, 161, 161);
+  visibility: visible;
+  opacity: 1;
+}
+:scope .fragment.opacity.visible {
+  color: rgba(147, 161, 161, 0.2);
+}
+</style>
+
+<ol class="ar-algorithm">
+    <li class="fragment opacity" data-fragment-index="1">Initialize <math-latex latex="\phi_{n,k}^0 = \frac{1}{K}"></math-latex></li>
+    <li class="fragment opacity" data-fragment-index="1">Initialize <math-latex latex="\gamma_{k}^0 = \alpha_k + \frac{N}{K}"></math-latex></li>
+    <li class="fragment opacity" data-fragment-index="1">repeat until convergence of <math-latex latex="\gamma"></math-latex>:
+        <ol>
+        <li class="fragment opacity" data-fragment-index="1">for each word at position <math-latex latex="n"></math-latex>:
+            <ol>
+            <li>for each topic <math-latex latex="k"></math-latex>: <math-latex latex="\phi_{n,k}^{t+1} = \beta_{k, w_n} \exp(\color{#93a1a1}{\psi(}\gamma_k^t\color{#93a1a1}{)})"></math-latex></li>
+            <li class="fragment opacity" data-fragment-index="1">normalize: <math-latex latex="\phi_n^{t+1}"></math-latex></li>
+            </ol>
+        </li>
+        <li class="fragment opacity" data-fragment-index="1">for each topic <math-latex latex="k"></math-latex>: <math-latex latex="\gamma_k^{t+1} = \alpha_k + \sum_{n=1}^N \phi_{n,k}^{t+1}"></math-latex></li>
+        </ol>
+    </li>
+</ol>
